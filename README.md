@@ -3,15 +3,21 @@
 This project demonstrates the implementation of a DevSecOps pipeline to secure an API.
 
 The pipeline includes the following stages:
+
+![alt text](<images/pipeline.png>)
+
+
 - **SAST** (Static Application Security Testing): Static analysis of the source code to detect vulnerabilities before execution, by reviewing each line of code.
 - **DAST** (Dynamic Application Security Testing): Dynamic testing of the running application to identify security flaws that can be exploited at runtime.
-- **Integration and Functional Tests**: Verification of the correct functioning of the application and the integration of its components, while ensuring the absence of regressions and security issues.
+- **Test: Integration and Functional Tests**: Verification of the correct functioning of the application and the integration of its components, while ensuring the absence of regressions and security issues.
+
 
 ### Tools
 
-- **Snyk** to perform SAST
-- **ZAP Action Full Scan** to perform DAST
+- [**Snyk**](https://app.snyk.io/) to perform SAST
+- [**ZAP Action Full Scan**](https://github.com/zaproxy/action-full-scan) to perform DAST 
 - **pytest** to perform Integration and Functional Tests
+
 
 ### Difference between Integration and Functional Tests
 
