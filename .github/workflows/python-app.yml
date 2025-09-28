@@ -100,3 +100,16 @@ jobs:
           source .venv/bin/activate
           pip install pytest pytest-django
           pytest tests/ --maxfail=2 --disable-warnings -v
+
+  # Deploy to test environment
+
+  # DAST (Dynamic Application Security Testing) with OWASP ZAP on a test environment
+  # for DAST, we need a running instance of the api/web application to scan
+  dast:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.12.0
+        with:
+          target: 'https://ualexon.com' # Replace with your test environment URL
