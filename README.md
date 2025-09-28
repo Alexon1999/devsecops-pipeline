@@ -1,4 +1,19 @@
-# Setup environment
+# DevSecOps Pipeline
+
+This project demonstrates the implementation of a DevSecOps pipeline to secure an API.
+
+The pipeline includes the following stages:
+- **SAST** (Static Application Security Testing): Static analysis of the source code to detect vulnerabilities before execution, by reviewing each line of code.
+- **DAST** (Dynamic Application Security Testing): Dynamic testing of the running application to identify security flaws that can be exploited at runtime.
+- **Integration and Functional Tests**: Verification of the correct functioning of the application and the integration of its components, while ensuring the absence of regressions and security issues.
+
+### Difference between Integration and Functional Tests
+
+- **Integration Tests** focus on verifying the interactions between different modules or components of the API. They ensure that combined parts of the system work together as expected (e.g., database and API endpoints working in sync).
+- **Functional Tests** validate that a specific feature or function of the API behaves according to the requirements, typically by testing endpoints independently from their internal implementation.
+
+
+## Setup environment
 
 ```bash
 # Create a virtual environment
