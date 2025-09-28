@@ -40,7 +40,7 @@ jobs:
           path: venv.tar.gz
           if-no-files-found: error
 
-  security:
+  security-checks-sast:
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -73,7 +73,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: security
+    needs: security-checks-sast
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python 3.10
@@ -106,7 +106,7 @@ jobs:
 
   # DAST (Dynamic Application Security Testing) with OWASP ZAP on a test environment
   # for DAST, we need a running instance of the api/web application to scan
-  dast:
+  security-checks-dast:
     runs-on: ubuntu-latest
     needs: test
     steps:
