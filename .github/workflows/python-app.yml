@@ -40,7 +40,7 @@ jobs:
           path: venv.tar.gz
           if-no-files-found: error
 
-  security-checks-sast:
+  security-checks-sca-sast:
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -58,22 +58,28 @@ jobs:
         run: |
           tar xzf venv.tar.gz
       - uses: snyk/actions/setup@master
-      - name: Snyk monitor (dépendances)
+      - name: Snyk - SCA scan (dépendances)
         run: |
           source .venv/bin/activate
           snyk test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      - name: Snyk Code (analyse du code source)
+      - name: Snyk - SAST scan (analyse du code source)
         run: |
           source .venv/bin/activate
           snyk code test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      - name: Snyk - Monitor (track project over time)
+        run: |
+          source .venv/bin/activate
+          snyk monitor --all-projects
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
   test:
     runs-on: ubuntu-latest
-    needs: security-checks-sast
+    needs: security-checks-sca-sast
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python 3.10
