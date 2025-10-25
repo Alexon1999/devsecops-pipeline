@@ -70,6 +70,11 @@ jobs:
           snyk code test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      
+      # Monitor your project with Snyk:
+      # - Creates a snapshot of dependencies and source code
+      # - Uploaded to Snyk dashboard
+      # - Alerts on new vulnerabilities over time
       - name: Snyk - Monitor (track project over time)
         run: |
           source .venv/bin/activate
