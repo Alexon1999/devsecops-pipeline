@@ -6,16 +6,16 @@ The pipeline includes the following stages:
 
 ![alt text](<images/pipeline.png>)
 
-- **SCA** (Software Composition Analysis): Analysis of the application’s open-source libraries and dependencies to detect known vulnerabilities, outdated versions, and license risks.
-- **SAST** (Static Application Security Testing): Static analysis of the source code to detect vulnerabilities before execution, by reviewing each line of code.
-- **DAST** (Dynamic Application Security Testing): Dynamic testing of the running application to identify security flaws that can be exploited at runtime.
+- **SCA** (Software Composition Analysis) scan : Analysis of the application’s open-source libraries and dependencies to detect known vulnerabilities, outdated versions, and license risks.
+- **SAST** (Static Application Security Testing) scan: Static analysis of the source code to detect vulnerabilities before execution, by reviewing each line of code.
+- **DAST** (Dynamic Application Security Testing) scan: Dynamic testing of the running application to identify security flaws that can be exploited at runtime.
 - **Test: Integration and Functional Tests**: Verification of the correct functioning of the application and the integration of its components, while ensuring the absence of regressions and security issues.
 
 
 ### Tools
 
-- [**Snyk**](https://app.snyk.io/) to perform SCA and SAST
-- [**ZAP Action Full Scan**](https://github.com/zaproxy/action-full-scan) to perform DAST 
+- [**Snyk**](https://app.snyk.io/) to perform SCA and SAST scan
+- [**ZAP Action Full Scan**](https://github.com/zaproxy/action-full-scan) to perform DAST scan
 - **Pytest** to perform Integration and Functional Tests
 
 
