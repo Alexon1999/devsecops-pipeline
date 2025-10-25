@@ -14,7 +14,9 @@ The pipeline includes the following stages:
 
 ### Tools
 
-- [**Snyk**](https://app.snyk.io/) to perform SCA and SAST scan
+- [**Snyk**](https://app.snyk.io/) to perform SCA, SAST scan and Monitoring
+  - Scans your code and dependencies for vulnerabilities (SCA & SAST)
+  - Monitoring : monitors your project over time for new security issues. Creates snapshots of dependencies and code uploaded to Snyk, sending alerts if new vulnerabilities appear later.
 - [**ZAP Action Full Scan**](https://github.com/zaproxy/action-full-scan) to perform DAST scan
 - **Pytest** to perform Integration and Functional Tests
 
