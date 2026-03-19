@@ -1,0 +1,43 @@
+# HELP ci_pipeline_info Informations définissant le pipeline GH Actions
+# TYPE ci_pipeline_info gauge
+ci_pipeline_info{run_id="23314489843",run_number="23",run_attempt="1",workflow="Python application",job="observability",repository="Alexon1999/devsecops-pipeline",ref="refs/heads/main",ref_name="main",sha="e013f3e2770c784a991a87d5b9fb33147413a6a0",actor="Alexon1999",event_name="push",version="main",status="success",build_status="success",sca_sast_status="success",test_status="success",dast_status="success"} 1
+# HELP ci_pipeline_status Statut détaillé du pipeline
+# TYPE ci_pipeline_status gauge
+ci_pipeline_status{status="success"} 1
+# HELP ci_pipeline_test_total nombre total de tests exécutés
+# TYPE ci_pipeline_test_total gauge
+ci_pipeline_test_total 2
+# HELP ci_pipeline_test_failures nombre de tests échoués
+# TYPE ci_pipeline_test_failures gauge
+ci_pipeline_test_failures 0
+# HELP ci_pipeline_test_errors nombre de tests en erreur
+# TYPE ci_pipeline_test_errors gauge
+ci_pipeline_test_errors 0
+# HELP ci_pipeline_test_skipped nombre de tests sautés
+# TYPE ci_pipeline_test_skipped gauge
+ci_pipeline_test_skipped 0
+# HELP ci_pipeline_test_duration_seconds durée totale des tests en secondes
+# TYPE ci_pipeline_test_duration_seconds gauge
+ci_pipeline_test_duration_seconds 1.583
+# HELP ci_pipeline_coverage_line_rate taux de couverture des lignes (0..1)
+# TYPE ci_pipeline_coverage_line_rate gauge
+ci_pipeline_coverage_line_rate 0.8018
+# HELP ci_pipeline_coverage_branch_rate taux de couverture des branches (0..1)
+# TYPE ci_pipeline_coverage_branch_rate gauge
+ci_pipeline_coverage_branch_rate 0.0
+# HELP ci_pipeline_coverage_statements nombre total de statements analysés
+# TYPE ci_pipeline_coverage_statements gauge
+ci_pipeline_coverage_statements 111
+# HELP ci_pipeline_coverage_missed nombre de statements manquants
+# TYPE ci_pipeline_coverage_missed gauge
+ci_pipeline_coverage_missed 22
+# HELP ci_pipeline_coverage_percent pourcentage de couverture des statements (0-100)
+# TYPE ci_pipeline_coverage_percent gauge
+ci_pipeline_coverage_percent 80.17999999999999
+# HELP ci_pipeline_stage_status Statut des étapes principales du pipeline
+# TYPE ci_pipeline_stage_status gauge
+ci_pipeline_stage_status{stage="build",status="success"} 1
+ci_pipeline_stage_status{stage="sca_sast",status="success"} 1
+ci_pipeline_stage_status{stage="test",status="success"} 1
+ci_pipeline_stage_status{stage="dast",status="success"} 1
+ci_pipeline_stage_status{stage="ci",status="success"} 1

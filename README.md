@@ -4,7 +4,7 @@ This project demonstrates the implementation of a DevSecOps pipeline to secure a
 
 The pipeline includes the following stages:
 
-![alt text](<images/pipeline.png>)
+![pipeline](<images/pipeline.png>)
 
 - **SCA** (Software Composition Analysis) scan : Analysis of the application’s open-source libraries and dependencies to detect known vulnerabilities, outdated versions, and license risks.
 - **SAST** (Static Application Security Testing) scan: Static analysis of the source code to detect vulnerabilities before execution, by reviewing each line of code.
@@ -26,6 +26,26 @@ The pipeline includes the following stages:
 - **Integration Tests** focus on verifying the interactions between different modules or components of the API. They ensure that combined parts of the system work together as expected (e.g., database and API endpoints working in sync).
 - **Functional Tests** validate that a specific feature or function of the API behaves according to the requirements, typically by testing endpoints independently from their internal implementation.
 
+## Observability
+
+This project includes a CI/CD observability layer that collects and visualizes pipeline metrics to quickly detect regressions.
+
+CI/CD observability is used to quickly detect pipeline failures, track job health over time, and improve reliability by measuring success rate, test results, and security checks in one place.
+
+- **Prometheus** collects pipeline, tests, and security metrics.
+- **Grafana** builds dashboards (pipeline status, job status, success rate, test duration, coverage).
+- **Pushgateway** receives pushed metrics from GitHub Actions (observability job).
+- **Observability script** (`observability_metrics.py`) generates the `.prom` file from CI/CD piepline results.
+
+Recommended macro dashboard:
+1. Pipeline status (success/failure)
+2. Job statuses by stage (build, sca/sast, tests, dast)
+3. Tests (total, failed, skipped, duration)
+4. Coverage (%)
+
+if you want more detail, check this [documentation](./docs/observability.md)
+
+![grafana dashboard.png](./images/dashboard.png)
 
 ## Setup environment
 
