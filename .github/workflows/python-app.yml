@@ -61,7 +61,9 @@ jobs:
       - name: Snyk - SCA scan (dépendances)
         run: |
           source .venv/bin/activate
-          snyk test --debug --log-level=trace
+
+          ## deactivate snyk test, because of 403 Forbidden (SNYK-CLI-0000)
+          # snyk test --debug --log-level=trace
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Snyk - SAST scan (analyse du code source)
