@@ -164,9 +164,11 @@ jobs:
           name: observability-metrics
           path: observability.prom
       - name: Push metrics to Pushgateway (optional)
-        if: ${{ secrets.PUSHGATEWAY_URL != '' }}
+        env:
+          PUSHGATEWAY_URL: ${{ secrets.PUSHGATEWAY_URL }}
+        if: ${{ env.PUSHGATEWAY_URL != '' }}
         run: |
-          curl -sS -X POST --data-binary @observability.prom "${{ secrets.PUSHGATEWAY_URL }}/metrics/job/devsecops-pipeline/instance/${{ github.run_id }}"
+          curl -sS -X POST --data-binary @observability.prom "$PUSHGATEWAY_URL/metrics/job/devsecops-pipeline/instance/${{ github.run_id }}"
 
 
   # Deploy to test environment
