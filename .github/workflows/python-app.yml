@@ -120,6 +120,19 @@ jobs:
             coverage.xml
             pytest-results.xml
 
+  # Deploy to test environment
+
+  # DAST (Dynamic Application Security Testing) with OWASP ZAP on a test environment
+  # for DAST, we need a running instance of the api/web application to scan
+  security-checks-dast:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.12.0
+        with:
+          target: 'https://ualexon.com' # Replace with your test environment URL
+
   observability:
     runs-on: ubuntu-latest
     needs: test
@@ -169,17 +182,3 @@ jobs:
         if: ${{ env.PUSHGATEWAY_URL != '' }}
         run: |
           curl -sS -X POST --data-binary @observability.prom "$PUSHGATEWAY_URL/metrics/job/devsecops-pipeline/instance/${{ github.run_id }}"
-
-
-  # Deploy to test environment
-
-  # DAST (Dynamic Application Security Testing) with OWASP ZAP on a test environment
-  # for DAST, we need a running instance of the api/web application to scan
-  security-checks-dast:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: ZAP Scan
-        uses: zaproxy/action-full-scan@v0.12.0
-        with:
-          target: 'https://ualexon.com' # Replace with your test environment URL
