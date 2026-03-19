@@ -63,7 +63,7 @@ jobs:
           source .venv/bin/activate
 
           ## deactivate snyk test, because of 403 Forbidden (SNYK-CLI-0000)
-          snyk test --debug --log-level=trace
+          # snyk test --debug --log-level=trace
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Snyk - SAST scan (analyse du code source)
@@ -71,7 +71,7 @@ jobs:
           source .venv/bin/activate
 
           ## deactivate snyk test, because of 403 Forbidden (SNYK-CLI-0000)
-          snyk code test
+          # snyk code test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       
@@ -82,7 +82,8 @@ jobs:
       - name: Snyk - Monitor (track project over time)
         run: |
           source .venv/bin/activate
-          snyk monitor --all-projects
+          ## deactivate snyk monitor, because of 403 Forbidden (SNYK-CLI-0000)
+          # snyk monitor --all-projects
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
