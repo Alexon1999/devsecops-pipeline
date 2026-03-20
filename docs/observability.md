@@ -19,9 +19,10 @@ L’avantage : détecter rapidement les problèmes, améliorer la qualité et la
 | --- | --- |
 | **GitHub Actions** | Exécute le pipeline CI/CD |
 | **Python script (`observability_metrics.py`)** | Génère des métriques Prometheus à partir des résultats des jobs |
-| **Prometheus** | Collecte les métriques exposées par Pushgateway ou fichiers `.prom` |
-| **Pushgateway** | Permet à GitHub Actions d’envoyer des métriques « push » vers Prometheus |
-| **Grafana** | Visualise les métriques et crée des dashboards |
+| **Prometheus** | Collecte les métriques exposées par Pushgateway donc prometheus fera un pull (en appellant l'endpoint exposé par pushgateway) et il les stocke dans sa base de données de séries chronologiques. (time-series database) |
+| **Pushgateway** | Prometheus Pushgateway a pour but de permettre aux tâches éphémères et aux tâches par lots de transmettre leurs métriques à Prometheus.
+. Ici il Permet à GitHub Actions d’envoyer des métriques sous format fichier .prom (Prometheus text format). Il expose /metrics comme les autre exporters et prometheus fera la requête pour recupérer les métriques |
+| **Grafana** | Visualise les métriques stocké dans prometheus et crée des dashboards |
 
 ---
 
