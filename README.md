@@ -10,7 +10,7 @@ The pipeline includes the following stages:
 - **SAST** (Static Application Security Testing) scan: Static analysis of the source code to detect vulnerabilities before execution, by reviewing each line of code.
 - **DAST** (Dynamic Application Security Testing) scan: Dynamic testing of the running application to identify security flaws that can be exploited at runtime.
 - **Test: Integration and Functional Tests**: Verification of the correct functioning of the application and the integration of its components, while ensuring the absence of regressions and security issues.
-
+- **Observability**: this layer collects all metrics and send it to observability stack. we can then visualizes pipeline metrics to quickly detect regressions.
 
 ### Tools
 
@@ -26,7 +26,7 @@ The pipeline includes the following stages:
 - **Integration Tests** focus on verifying the interactions between different modules or components of the API. They ensure that combined parts of the system work together as expected (e.g., database and API endpoints working in sync).
 - **Functional Tests** validate that a specific feature or function of the API behaves according to the requirements, typically by testing endpoints independently from their internal implementation.
 
-## Observability
+### Observability
 
 This project includes a CI/CD observability layer that collects and visualizes pipeline metrics to quickly detect regressions.
 
